@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    "use strict";
+    function validate(){
+
+      var code = document.getElementById("nric").value;
+
+      //判斷第二位數字是男生女生
+      var boy_girl =code.toString()[1];
+      console.log(boy_girl);
+
+      if (code==""){
+        alert("內容是空的，發出警告!");
+      }
+      else if (!isNaN(code)){
+        alert("內容不能是數字，發出警告!");
+      }
+      else if (code.length!=10){
+        alert("內容的長度不正確，發出警告!");
+      }
+      else{
+        if (boy_girl==1){
+        document.getElementById("result").innerHTML="通過驗證,該身分證字號為男";
+        }
+        else if (boy_girl==2){
+        document.getElementById("result").innerHTML="通過驗證,該身分證字號為女";
+        }
+        else {
+          alert("第二位數字不能為1和2以外的數字");
+        }
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <form>
+    <input type="text" id="nric">
+    <input type="button" value="驗證" onclick="validate()">
+    <p id="result"></p>
+  </form>
+</body>
+
+</html>
